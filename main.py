@@ -1,6 +1,16 @@
-import Name_Check_V2
-print(Name_Check_V2)
+import 
+print()
 # Functions here
+
+# Checks for the users name and checks if it is left blank
+def Ticket_Name(question):
+	valid = False
+	while not valid:
+		response = input(question)
+		if response != "":
+			return response
+		else:
+			print("This is not a valid name")	
 
 # Main
 
