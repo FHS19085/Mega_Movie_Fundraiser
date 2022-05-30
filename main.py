@@ -1,5 +1,5 @@
-import 
-print()
+import Looping_Code_V1
+print(Looping_Code_V1)
 # Functions here
 
 # Checks for the users name and checks if it is left blank
@@ -7,10 +7,12 @@ def Ticket_Name(question):
 	valid = False
 	while not valid:
 		response = input(question)
+		# If name not blank program continues
 		if response != "":
 			return response
+		# If name is blank print message and loop function
 		else:
-			print("This is not a valid name")	
+			print("Your name cannot be blank")	
 
 # Main
 
@@ -21,7 +23,7 @@ def Ticket_Name(question):
 # Loop for ticket details
 
 # Get name
-
+name = Ticket_Name("Name?\n")
 # Get age
 
 # Calculate ticket price
