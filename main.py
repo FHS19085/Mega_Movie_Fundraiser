@@ -1,5 +1,5 @@
-import Looping_Code_V3
-print(Looping_Code_V3)
+#import Looping_Code_V3
+#print(Looping_Code_V3)
 # Functions here
 
 # Checks for the users name and checks if it is left blank
@@ -21,9 +21,27 @@ def Ticket_Name(question):
 # Ask if user has used before and show instructions
 
 # Loop for ticket details
+# Start the loop to make it run at least once
+name = ""
+count = 0
+Total_tickets = 5
 
-# Get name
-name = Ticket_Name("Name?\n")
+while name != "xxx" and count < Total_tickets:
+	if Total_tickets - count == 1: 
+		print("There is {} seat left".format(Total_tickets - count))
+	else:
+		print("There are {} seats left".format(Total_tickets - count))
+	# Get name
+	name = Ticket_Name("Name?\n")  
+	count += 1
+	if name == "xxx":
+	  count -= 1
+	print()
+
+if count == Total_tickets:
+	print("All avalable tickets have been sold")
+else:
+ print("You have sold {} tickets. \nThere are still {} seats available".format(count, Total_tickets - count))
 # Get age
 
 # Calculate ticket price
