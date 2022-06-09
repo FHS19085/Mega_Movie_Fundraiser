@@ -1,5 +1,5 @@
-import Get_Age_V1
-print(Get_Age_V1)
+#import Get_Age_V1
+#print(Get_Age_V1)
 # Functions here
 
 # Checks for the users name and checks if it is left blank
@@ -13,6 +13,20 @@ def Ticket_Name(question):
 		# If name is blank print message and loop function
 		else:
 			print("Your name cannot be blank")	
+# Asks for users age and loops until valid answer is given
+def age_check (question, low_num, high_num):
+	error = "Enter a whole number between {} and {}".format(low_num, high_num)
+	valid = False
+	while not valid:
+		# Ask the user for their age and check if it is valid
+		try:
+			response = int(input(question))
+			if low_num <= response <= high_num:
+				return response
+			else:
+				print(error)
+		except ValueError:
+			print(error)
 
 # Main
 
@@ -36,13 +50,15 @@ while name != "xxx" and count < Total_tickets:
 	count += 1
 	if name == "xxx":
 	  count -= 1
-	print()
+	  break
+	# Get age
+	age = age_check ("Age: ", 12, 130)
+	
 
 if count == Total_tickets:
 	print("All avalable tickets have been sold")
 else:
  print("You have sold {} tickets. \nThere are still {} seats available".format(count, Total_tickets - count))
-# Get age
 
 # Calculate ticket price
 
