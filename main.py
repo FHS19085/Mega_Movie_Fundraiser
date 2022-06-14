@@ -1,5 +1,5 @@
-#import Get_Age_V1
-#print(Get_Age_V1)
+#import Get_Age_V2
+#print(Get_Age_V2)
 # Functions here
 
 # Checks for the users name and checks if it is left blank
@@ -13,29 +13,21 @@ def Ticket_Name(question):
 		# If name is blank print message and loop function
 		else:
 			print("Your name cannot be blank")	
-# Asks for users age and loops until valid answer is given
-def age_check (question, low_num, high_num):
-	error = "Enter a whole number between {} and {}".format(low_num, high_num)
+# Checks for an integer more than 0 
+def age_check (question):
+	error = "please enter a whole number between 12 and 130"
 	valid = False
 	while not valid:
-		# Ask the user for their age and check if it is valid
+		# Ask the user for a number and checks if it is valid
 		try:
 			response = int(input(question))
-			if low_num <= response <= high_num:
-				return response
-			else:
+			if response < 0:
 				print(error)
+			else:
+				return response
 		except ValueError:
 			print(error)
-
-# Main
-
-# Lists needed to hold data
-
-# Ask if user has used before and show instructions
-
-# Loop for ticket details
-# Start the loop to make it run at least once
+# Main routine
 name = ""
 count = 0
 Total_tickets = 5
@@ -47,13 +39,20 @@ while name != "xxx" and count < Total_tickets:
 		print("There are {} seats left".format(Total_tickets - count))
 	# Get name
 	name = Ticket_Name("Name?\n")  
-	count += 1
 	if name == "xxx":
 	  count -= 1
 	  break
 	# Get age
-	age = age_check ("Age: ", 12, 130)
-	
+	age = age_check ("Age: ")
+
+	# Check that the age is valid
+	if age < 12:
+		print("You are too young to be seeing this movie")
+		continue
+	elif age > 130:
+		print("This is an abnormal age please try again")
+		continue
+	count += 1
 
 if count == Total_tickets:
 	print("All avalable tickets have been sold")
