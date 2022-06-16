@@ -1,5 +1,5 @@
-#import Get_Age_V2
-#print(Get_Age_V2)
+import Ticket_Price_V1
+print(Ticket_Price_V1)
 # Functions here
 
 # Checks for the users name and checks if it is left blank
@@ -40,7 +40,6 @@ while name != "xxx" and count < Total_tickets:
 	# Get name
 	name = Ticket_Name("Name?\n")  
 	if name == "xxx":
-	  count -= 1
 	  break
 	# Get age
 	age = age_check ("Age: ")
