@@ -1,5 +1,6 @@
-import Ticket_Price_V1
-print(Ticket_Price_V1)
+#import Ticket_Price_V1
+#print(Ticket_Price_V1)
+profit = 0
 # Functions here
 
 # Checks for the users name and checks if it is left blank
@@ -28,22 +29,30 @@ def age_check (question):
 		except ValueError:
 			print(error)
 # Main routine
-name = ""
-count = 0
 Total_tickets = 5
+name = ""
+Ticket_count = 0
+Ticket_sales = 0
 
-while name != "xxx" and count < Total_tickets:
-	if Total_tickets - count == 1: 
-		print("There is {} seat left".format(Total_tickets - count))
+
+while name != "xxx" and Ticket_count < Total_tickets:
+	if Total_tickets - Ticket_count == 1: 
+		print("There is {} seat left".format(Total_tickets - Ticket_count))
 	else:
-		print("There are {} seats left".format(Total_tickets - count))
+		print("There are {} seats left".format(Total_tickets - Ticket_count))
 	# Get name
 	name = Ticket_Name("Name?\n")  
 	if name == "xxx":
 	  break
 	# Get age
 	age = age_check ("Age: ")
-
+	# Check ticket price based on age
+	if age < 16:
+		Ticket_price = 7.50
+	elif age > 64:
+		Ticket_price = 6.50
+	else:
+		Ticket_price = 10.50
 	# Check that the age is valid
 	if age < 12:
 		print("You are too young to be seeing this movie")
@@ -51,14 +60,26 @@ while name != "xxx" and count < Total_tickets:
 	elif age > 130:
 		print("This is an abnormal age please try again")
 		continue
-	count += 1
+  # Calculate ticket price
+	# Check ticket price based on age
+	if age < 16:
+		Ticket_price = 7.50
+	elif age > 64:
+		Ticket_price = 6.50
+	else:
+		Ticket_price = 10.50
+	profit_made = Ticket_price - 5
+	profit += profit_made
+	print("{} : ${:.2f}".format(name, Ticket_price))
+	Ticket_count += 1
 
-if count == Total_tickets:
+if Ticket_count == Total_tickets:
 	print("All avalable tickets have been sold")
+elif Ticket_count == 4:
+	print("You have sold {} tickets. \nThere is still {} seat available".format(Ticket_count, Total_tickets - Ticket_count))
 else:
- print("You have sold {} tickets. \nThere are still {} seats available".format(count, Total_tickets - count))
+ print("You have sold {} tickets. \nThere are still {} seats available".format(Ticket_count, Total_tickets - Ticket_count))
 
-# Calculate ticket price
 
 # Loop for snacks
 
@@ -67,6 +88,7 @@ else:
 # Payment method
 
 # Sales and profit
-
+# Show total profit from tickets
+print("Profit from tickets: ${:.2f}".format(profit))
 # Output data to text file
 
