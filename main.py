@@ -1,5 +1,5 @@
-import Yes_No_Function
-print(Yes_No_Function)
+import String_Checker_V1
+print(String_Checker_V1)
 profit = 0
 # Functions here
 
