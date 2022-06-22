@@ -1,5 +1,5 @@
-#import Ticket_Price_V1
-#print(Ticket_Price_V1)
+import Yes_No_Function
+print(Yes_No_Function)
 profit = 0
 # Functions here
 
